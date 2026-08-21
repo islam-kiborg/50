@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Найди спрятанное золото</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style type="text/css">
+        .bg {
+            background-color: black;
+            cursor: pointer;
+        }
+        #game-over-screen {
+            display: none;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #game-over-screen img {
+            max-width: 100%;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="game-container">
+        <h1 class="task mt-3">Найди спрятанное золото. Попробуй собрать 6 баллов</h1>
+        <h1>Score: <span class="score">0</span></h1>
+        
+        <div class="row">
+            <div class="col-1 px-5 py-3 bg-warning text-center border"></div>
+            <div class="col-1 px-5 py-3 bg-warning text-center border"><h4>1</h4></div>
+            <div class="col-1 px-5 py-3 bg-warning text-center border"><h4>2</h4></div>
+            <div class="col-1 px-5 py-3 bg-warning text-center border"><h4>3</h4></div>
+            <div class="col-1 px-5 py-3 bg-warning text-center border"><h4>4</h4></div>
+            <div class="col-1 px-5 py-3 bg-warning text-center border"><h4>5</h4></div>
+            <div class="col-1 px-5 py-3 bg-warning text-center border"><h4>6</h4></div>
+        </div>
+        
+        <div class="row">
+            <div class="col-1 px-5 py-4 bg-warning text-center border"><h4>A</h4></div>
+            <div class="col-1 px-5 py-4 bg border bang"></div>
+            <div class="col-1 px-5 py-4 bg border coin"></div>
+            <div class="col-1 px-5 py-4 bg border meme"></div>
+            <div class="col-1 px-5 py-4 bg border treasure"></div>
+            <div class="col-1 px-5 py-4 bg border meme"></div>
+            <div class="col-1 px-5 py-4 bg border coin"></div>
+        </div>
+        
+        <div class="row">
+            <div class="col-1 px-5 py-4 bg-warning text-center border"><h4>B</h4></div>
+            <div class="col-1 px-5 py-4 bg border meme"></div>
+            <div class="col-1 px-5 py-4 bg border meme"></div>
+            <div class="col-1 px-5 py-4 bg border coin"></div>
+            <div class="col-1 px-5 py-4 bg border meme"></div>
+            <div class="col-1 px-5 py-4 bang bg border"></div>
+            <div class="col-1 px-5 py-4 bg border treasure"></div>
+        </div>
+        
+        <div class="row">
+            <div class="col-1 px-5 py-4 bg-warning text-center border"><h4>C</h4></div>
+            <div class="col-1 px-5 py-4 bg border bang"></div>
+            <div class="col-1 px-5 py-4 bg border treasure"></div>
+            <div class="col-1 px-5 py-4 bg border meme"></div>
+            <div class="col-1 px-5 py-4 bg border coin"></div>
+            <div class="col-1 px-5 py-4 bg border meme"></div>
+            <div class="col-1 px-5 py-4 bg border meme"></div>  
+        </div>
+        
+        <div class="row">
+            <div class="col-1 px-5 py-4 bg-warning text-center border"><h4>D</h4></div>
+            <div class="col-1 px-5 py-4 bg border coin"></div>
+            <div class="col-1 px-5 py-4 bg border meme"></div>
+            <div class="col-1 px-5 py-4 bg border treasure"></div>
+            <div class="col-1 px-5 py-4 bg border meme"></div>
+            <div class="col-1 px-5 py-4 bg border bang"></div>
+            <div class="col-1 px-5 py-4 bg border meme"></div>
+        </div>
+        
+        <div class="row">
+            <div class="col-1 px-5 py-4 bg-warning text-center border"><h4>E</h4></div>
+            <div class="col-1 px-5 py-4 bg border treasure"></div>
+            <div class="col-1 px-5 py-4 bg border coin"></div>
+            <div class="col-1 px-5 py-4 bg border meme"></div>
+            <div class="col-1 px-5 py-4 bg border bang"></div>
+            <div class="col-1 px-5 py-4 bg border meme"></div>
+            <div class="col-1 px-5 py-4 bg border meme"></div>
+        </div>
+        
+        <div class="row">
+            <div class="col-1 px-5 py-4 bg-warning text-center border"><h4>F</h4></div>
+            <div class="col-1 px-5 py-4 bg border meme"></div>
+            <div class="col-1 px-5 py-4 bg border treasure"></div>
+            <div class="col-1 px-5 py-4 bg border meme"></div>
+            <div class="col-1 px-5 py-4 bg border coin"></div>
+            <div class="col-1 px-5 py-4 bg border bang"></div>
+            <div class="col-1 px-5 py-4 bg border meme"></div>
+        </div>
+    </div>
+
+    <div id="game-over-screen">
+        <h1 style="color: red; font-size: 50px; font-weight: bold; margin-bottom: 20px;">GAME OVER</h1>
+        <img src="https://i.pinimg.com/736x/58/d7/24/58d724aaf04a5f8b7d018b40a4edd042.jpg" alt="Game Over">
+        <br>
+        <button class="btn btn-danger mt-4 btn-lg" onclick="location.reload()">Играть снова</button>
+    </div>
+
+<script type="text/javascript">
+    let score = 0;
+    let errors = 0; 
+    let score_block = document.querySelector(".score");
+
+    let treasure = document.querySelectorAll(".treasure");
+    let bang = document.querySelectorAll(".bang");
+    let coin = document.querySelectorAll(".coin");
+    let meme = document.querySelectorAll(".meme");
+    
+    let gameContainer = document.getElementById("game-container");
+    let gameOverScreen = document.getElementById("game-over-screen");
+
+    let scorePlus = function() {
+        score = score + 1;
+        score_block.innerHTML = score;
+        
+        if (score >= 6) {
+            setTimeout(function() {
+                alert("Вы победили! Все сокровища найдены.");
+                for(let i = 0; i < meme.length; i++) {
+                    meme[i].style.backgroundImage = "url(https://www.dropbox.com/s/gew2i3t23coosxi/mem.jpg?dl=1)";
+                    meme[i].style.backgroundSize = "100% 100%";
+                }
+                for(let i = 0; i < bang.length; i++) {
+                    bang[i].style.backgroundImage = "url(https://www.dropbox.com/s/xbr835xvc4kvel0/bang.png?dl=1)";
+                    bang[i].style.backgroundSize = "100% 100%";
+                }
+            }, 100);
+        }
+    }
+    
+    for (let i = 0; i < treasure.length; i++) {
+        treasure[i].onclick = function() {
+            scorePlus();
+            treasure[i].style.background = "green";
+            treasure[i].style.backgroundImage = "url(https://www.dropbox.com/s/fy0jq28wwpw4uwp/treasure.png?dl=1)";
+            treasure[i].style.backgroundSize = "100% 100%";
+            treasure[i].onclick = null; 
+        }
+    }
+
+    for (let i = 0; i < coin.length; i++) {
+        coin[i].onclick = function() {
+            scorePlus();
+            coin[i].style.background = "green";
+            coin[i].style.backgroundImage = "url(https://www.dropbox.com/s/d672atiica0gj4b/coin.png?dl=1)";
+            coin[i].style.backgroundSize = "100% 100%";
+            coin[i].onclick = null; 
+        }
+    }
+
+    for (let i = 0; i < bang.length; i++) {
+        bang[i].onclick = function() {
+            score = score - 1;
+            errors = errors + 1; 
+            score_block.innerHTML = score;
+            
+            bang[i].style.background = "red";
+            bang[i].style.backgroundImage = "url(https://www.dropbox.com/s/xbr835xvc4kvel0/bang.png?dl=1)";
+            bang[i].style.backgroundSize = "100% 100%";
+            bang[i].onclick = null; 
+
+            if (errors >= 3) {
+                setTimeout(function() {
+                    gameContainer.style.display = "none";
+                    gameOverScreen.style.display = "block";
+                }, 500);
+            }
+        }
+    }
+
+    for (let i = 0; i < meme.length; i++) {
+        meme[i].onclick = function() {
+            meme[i].style.backgroundImage = "url(https://www.dropbox.com/s/gew2i3t23coosxi/mem.jpg?dl=1)";
+            meme[i].style.backgroundSize = "100% 100%";
+            meme[i].style.opacity = "1";
+            meme[i].onclick = null; 
+        }
+    }
+</script>
+</body>
+</html>
